@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/JET1%204/Documents/AI%20finder.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Lost Object Finder</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e1f26, #343a40);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input, button {
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    input {
+      width: 250px;
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #008c9e;
+    }
+
+    #output {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .ai-box {
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .ai-box p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 AI Lost Object Finder</h1>
+
+  <div>
+    <input type="text" id="objectInput" placeholder="Enter the lost object (e.g. keys)">
+    <button onclick="findObject()">Find</button>
+  </div>
+
+  <div id="output"></div>
+
+  <div class="ai-box">
+    <p><strong>AI Tips:</strong></p>
+    <p>🔍 Think where you last saw it.</p>
+    <p>🗣 Try saying “Find my keys” aloud!</p>
+    <p>📷 AI vision models can scan rooms for missing items.</p>
+  </div>
+
+  <script>
+    const hints = {
+      keys: "Check your bag, pocket, or near the door.",
+      wallet: "Maybe near your bed, sofa, or jeans pocket.",
+      phone: "Try calling it or look near your pillow.",
+      glasses: "Check the study table or your head 😄.",
+      remote: "Probably under the couch or in the living room.",
+    };
+
+    function findObject() {
+      const object = document.getElementById('objectInput').value.toLowerCase().trim();
+      const output = document.getElementById('output');
+
+      if (object === "") {
+        output.innerHTML = "⚠️ Please enter what you lost.";
+        return;
+      }
+
+      if (hints[object]) {
+        output.innerHTML = `🤖 AI Suggests: ${hints[object]}`;
+      } else {
+        output.innerHTML = `🤔 AI is learning... Try checking usual places for your ${object}.`;
+      }
+    }
+  </script>
+
+</body></html>
